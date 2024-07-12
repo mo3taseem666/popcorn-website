@@ -20,7 +20,10 @@ export default function Right({
   const [Nmovies, setNMovies] = useState(0);
   const [rank, setRank] = useState(0);
   const [runtime, setRuntime] = useState(0);
-  const [alreadyAdded, setAlreadyAdded] = useState([]);
+  const [alreadyAdded, setAlreadyAdded] = useState(() => {
+    const x = localStorage.getItem("added");
+    return JSON.parse(x) || [];
+  });
   const [forBelowNav, setForBelowNav] = useState(() => {
     const x = localStorage.getItem("watched");
     return JSON.parse(x) || [];
@@ -32,7 +35,7 @@ export default function Right({
   });
   const [d, setD] = useState([]);
 
-  console.log(Rstars);
+  console.log('Rstars :' ,Rstars , "forbdlow",forBelowNav,"already:" ,alreadyAdded);
 
   function deleteBtn(x) {
     let y = Rstars;
@@ -43,6 +46,10 @@ export default function Right({
   useEffect(() => {
     localStorage.setItem("rates", JSON.stringify(Rstars));
   }, [Rstars]);
+
+  useEffect(() => {
+    localStorage.setItem("added", JSON.stringify(alreadyAdded));
+  }, [alreadyAdded]);
 
   useEffect(() => {
     localStorage.setItem("watched", JSON.stringify(forBelowNav));

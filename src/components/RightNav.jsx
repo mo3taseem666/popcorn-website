@@ -9,7 +9,7 @@ export default function RightNav({
 }) {
   const [rate, setRate] = useState(0);
 
-console.log(rate);
+
 
   useEffect(() => {
     if (
