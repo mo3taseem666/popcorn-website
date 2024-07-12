@@ -52,7 +52,7 @@ export default function Right({
   useEffect(() => {
     async function getMovies() {
       setIsLoading(true);
-      const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&i=${id}`);
+      const res = await fetch(`https://www.omdbapi.com/?apikey=${KEY}&i=${id}`);
       const data = await res.json();
       setMovieData(data);
       setIsLoading(false);

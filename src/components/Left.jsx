@@ -22,7 +22,7 @@ export default function Left({
       setIsL(true);
       try {
         const response = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${searchKey}&Runtime`,
+          `https://www.omdbapi.com/?apikey=${KEY}&s=${searchKey}&Runtime`,
           { signal }
         );
         const data = await response.json();
